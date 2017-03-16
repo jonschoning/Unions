@@ -1,0 +1,6 @@
+bin/
+obj/
+packages/
+.vs/
+unions.csproj.user
+TestResult.xml
