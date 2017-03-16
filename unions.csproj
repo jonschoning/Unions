@@ -48,15 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src/Curry.cs" />
-    <Compile Include="src/Result.cs" />
-    <Compile Include="src/AccResult.cs" />
-    <Compile Include="src/Optional.cs" />
-    <Compile Include="src/Either.cs" />
-    <Compile Include="src/OneOf.cs" />
-    <Compile Include="tests/UnionsTests.cs" />
-    <Compile Include="tests/JsonSerializationTests.cs" />
-    <Compile Include="src/AssemblyInfo.cs" />
+    <Compile Include="src\AccResult.cs" />
+    <Compile Include="src\AssemblyInfo.cs" />
+    <Compile Include="src\Curry.cs" />
+    <Compile Include="src\Either.cs" />
+    <Compile Include="src\OneOf.cs" />
+    <Compile Include="src\Optional.cs" />
+    <Compile Include="src\Result.cs" />
+    <Compile Include="tests\JsonSerializationTests.cs" />
+    <Compile Include="tests\UnionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
