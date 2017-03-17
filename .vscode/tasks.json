@@ -12,7 +12,7 @@
         {
             "taskName": "test",
             "command": "packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe",
-            "args": [ "bin/Debug/unions.dll" ]
+            "args": [ "bin/Debug/unions.dll","--noheader" ]
         }
     ]
 }
