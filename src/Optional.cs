@@ -30,6 +30,13 @@ namespace Unions
 
     /// <summary>
     /// Represents a single value of which is either a "T" or a "None". Create by direct assignment from T, null, Some&lt;T&gt;, or None (the correct ctor is implicity called); Use Match() to get the value back out.  
+    ///
+    /// coercion rules:
+    ///
+    /// Optional(x)  /*when x != null*/  -> param Converts to: Some(x) 
+    /// Optional(null)                   -> param Converts to: None
+    /// Optional(new Some<string>(null)) -> param Converts to: Some(null)
+    ///
     /// </summary>
     /// <typeparam name="T">The type indicating T</typeparam>
     [DebuggerStepThrough]
