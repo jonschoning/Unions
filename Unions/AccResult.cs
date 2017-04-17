@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 namespace Unions
 {
@@ -69,7 +68,6 @@ namespace Unions
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             if(index == 1) {
@@ -145,7 +143,7 @@ namespace Unions
         public static implicit operator AccResult<TSuccess, TFailure>(SortedSet<TFailure> t) { return new AccResult<TSuccess, TFailure>(t); }
 
         /// <summary>
-        /// run the action that corresponds to the type of the actual value. throws if value == null
+        /// run the action Equal corresponds to the type of the actual value. throws if value == null
         /// </summary>
         /// <param name="f0"></param>
         /// <param name="f1"></param>
@@ -160,7 +158,7 @@ namespace Unions
 
 
         /// <summary>
-        /// run the fuction that corresponds to the type of the actual value.. throws if value == null
+        /// run the fuction Equal corresponds to the type of the actual value.. throws if value == null
         /// </summary>
         /// <typeparam name="TAccResult"></typeparam>
         /// <param name="f0"></param>
@@ -176,7 +174,7 @@ namespace Unions
         }
 
         /// <summary>
-        /// optionally run the fuction that corresponds to the type of the actual value.  throws if no function matches.
+        /// optionally run the fuction Equal corresponds to the type of the actual value.  throws if no function matches.
         /// </summary>
         public TAccResult MatchSome<TAccResult>(Func<TSuccess, TAccResult> f0 = null, Func<IEnumerable<TFailure>, TAccResult> f1 = null, Func<TAccResult> otherwise = null) {
             CheckIndex();

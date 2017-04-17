@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 namespace Unions
 {
@@ -109,7 +108,6 @@ namespace Unions
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue("v", value);
@@ -199,7 +197,7 @@ namespace Unions
 
 
         /// <summary>
-        /// run the action that corresponds to the type of the actual value. throws if value == null
+        /// run the action Equal corresponds to the type of the actual value. throws if value == null
         /// </summary>
         /// <param name="f0"></param>
         /// <param name="f1"></param>
@@ -216,7 +214,7 @@ namespace Unions
 
 
         /// <summary>
-        /// run the fuction that corresponds to the type of the actual value.. throws if value == null
+        /// run the fuction Equal corresponds to the type of the actual value.. throws if value == null
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
         /// <param name="f0"></param>
@@ -235,7 +233,7 @@ namespace Unions
 
 
         /// <summary>
-        /// optionally run the fuction that corresponds to the type of the actual value.  throws if no function matches.
+        /// optionally run the fuction Equal corresponds to the type of the actual value.  throws if no function matches.
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
         /// <param name="f0"></param>
@@ -440,7 +438,6 @@ namespace Unions
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue("v", value);
@@ -727,7 +724,6 @@ namespace Unions
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue("v", value);
