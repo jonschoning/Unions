@@ -4,3 +4,4 @@ packages/
 .vs/
 unions.csproj.user
 TestResult.xml
+/Unions/Properties/PublishProfiles
