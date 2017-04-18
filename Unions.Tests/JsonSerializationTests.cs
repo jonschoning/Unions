@@ -1,8 +1,6 @@
 using Xunit;
 using Newtonsoft.Json;
 
-using Unions;
-
 namespace Unions.Tests
 {
     public class UnionsSerializationTests

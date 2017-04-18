@@ -2,8 +2,6 @@ using Xunit;
 using System.Collections.Generic;
 using System;
 
-using Unions;
-
 namespace Unions.Tests
 {
     public class UnionsTests
