@@ -4,7 +4,7 @@ mono: none
 dotnet: 1.0.1
 solution: Unions.sln
 script:
-  - build-linux.sh
+  - ./build-linux.sh
   - cd Unions.Tests
-  - test-linux.sh
+  - ./test-linux.sh
 
