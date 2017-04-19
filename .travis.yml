@@ -1,0 +1,10 @@
+language: csharp
+dist: trusty
+mono: none
+dotnet: 1.0.1
+solution: unions.sln
+script:
+  - build-linux.sh
+  - cd Unions.Tests
+  - test-linux.sh
+
