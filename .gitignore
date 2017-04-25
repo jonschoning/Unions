@@ -5,3 +5,5 @@ packages/
 unions.csproj.user
 TestResult.xml
 /Unions/Properties/PublishProfiles
+/Unions.Tests/TestResults
+/build.proj
