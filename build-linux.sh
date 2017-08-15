@@ -1,3 +1,3 @@
 dotnet restore
-dotnet build --framework netstandard1.4 Unions/Unions.csproj
-dotnet build --framework netcoreapp1.1 Unions.Tests/Unions.Tests.csproj
+dotnet build --framework netstandard2.0 Unions/Unions.csproj
+dotnet build --framework netcoreapp2.0 Unions.Tests/Unions.Tests.csproj
