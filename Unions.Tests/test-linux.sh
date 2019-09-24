@@ -1,1 +1,1 @@
-dotnet xunit -framework netcoreapp2.1
+dotnet xunit -framework netcoreapp3.0
