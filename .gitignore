@@ -7,3 +7,6 @@ TestResult.xml
 /Unions/Properties/PublishProfiles
 /Unions.Tests/TestResults
 /build.proj
+
+.fake
+.ionide
