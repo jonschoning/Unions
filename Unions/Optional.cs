@@ -9,23 +9,13 @@ namespace Unions
     /// <summary>
     /// represents the absence of a value
     /// </summary>
-    [DebuggerStepThrough]
-    public struct None : IEquatable<None> {
-        private static None _value = new None();
-        public static None Value { get { return _value; } }
-        public bool Equals(None other) { return true; }
-    }
+    public record None();
 
     /// <summary>
     /// represents the presence of a type of value.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    [DebuggerStepThrough]
-    public struct Some<T> {
-        public readonly T _value;
-        public Some(T value) { _value = value; }
-        public T Value { get { return _value; } }
-    }
+    public record Some<T>(T Value);
 
     /// <summary>
     /// Represents a single value of which is either a "T" or a "None". Create by direct assignment from T, null, Some&lt;T&gt;, or None (the correct ctor is implicity called); Use Match() to get the value back out.  
@@ -40,7 +30,7 @@ namespace Unions
     /// <typeparam name="T">The type indicating T</typeparam>
     [DebuggerStepThrough]
     [Serializable]
-    public struct Optional<T>  : IEquatable<Optional<T>>, IEquatable<T>, ISerializable {
+    public struct Optional<T> : IEquatable<Optional<T>>, IEquatable<T>, ISerializable {
         private readonly T value;
         private readonly bool isSome;
 
@@ -76,7 +66,7 @@ namespace Unions
         /// </summary>
         /// <returns></returns>
         
-        public static Optional<T> FromNone { get { return None.Value; } }
+        public static Optional<T> FromNone { get { return new None(); } }
 
         /// <summary>
         /// Construct from a Some applied to value. Null values are *not* coerced into a None.
@@ -90,7 +80,7 @@ namespace Unions
         /// </summary>
         /// <returns></returns>
         public Optional<T> ToNoneIfNull() {
-            if (this.value == null) return None.Value;
+            if (this.value == null) return new None();
             return this;
         }
 
@@ -169,7 +159,7 @@ namespace Unions
         /// </summary>
         public None AsNone { get {
                 if (!IsNone) throw new InvalidOperationException("Cannot return a None when the value is a T");
-                return None.Value;
+                return new None();
            }
         }
 
@@ -258,7 +248,7 @@ namespace Unions
         /// ToString on the underlying value
         /// </summary>
         /// <returns></returns>
-        public override string ToString() { return isSome ? (value == null ? "null" : value.ToString()) : None.Value.ToString(); }
+        public override string ToString() { return isSome ? (value == null ? "null" : value.ToString()) : new None().ToString(); }
 
 
 
@@ -334,27 +324,27 @@ namespace Unions
     [DebuggerStepThrough]
     public static class OptionalOps
     {
-        public static Optional<bool> ToOptional(this bool? x) { if (x.HasValue) return x.Value; return None.Value; }
-        public static Optional<char> ToOptional(this char? x) { if (x.HasValue) return x.Value; return None.Value; }
-        public static Optional<int> ToOptional(this int? x) { if (x.HasValue) return x.Value; return None.Value; }
-        public static Optional<long> ToOptional(this long? x) { if (x.HasValue) return x.Value; return None.Value; }
-        public static Optional<float> ToOptional(this float? x) { if (x.HasValue) return x.Value; return None.Value; }
-        public static Optional<double> ToOptional(this double? x) { if (x.HasValue) return x.Value; return None.Value; }
-        public static Optional<decimal> ToOptional(this decimal? x) { if (x.HasValue) return x.Value; return None.Value; }
+        public static Optional<bool> ToOptional(this bool? x) { if (x.HasValue) return x.Value; return new None(); }
+        public static Optional<char> ToOptional(this char? x) { if (x.HasValue) return x.Value; return new None(); }
+        public static Optional<int> ToOptional(this int? x) { if (x.HasValue) return x.Value; return new None(); }
+        public static Optional<long> ToOptional(this long? x) { if (x.HasValue) return x.Value; return new None(); }
+        public static Optional<float> ToOptional(this float? x) { if (x.HasValue) return x.Value; return new None(); }
+        public static Optional<double> ToOptional(this double? x) { if (x.HasValue) return x.Value; return new None(); }
+        public static Optional<decimal> ToOptional(this decimal? x) { if (x.HasValue) return x.Value; return new None(); }
 
         /// <summary>
         /// convert to a an Either
         /// </summary>
         /// <returns></returns>
         public static Either<TSuccess, None> ToEither<TSuccess>(this Optional<TSuccess> x) {
-            return x.Match<Either<TSuccess, None>>(t0 => t0, () => None.Value);
+            return x.Match<Either<TSuccess, None>>(t0 => t0, () => new None());
         }
 
         /// <summary>
         /// convert to AccResult
         /// </summary>
         public static AccResult<TSuccess, None> ToAccResult<TSuccess, TFailure>(this Optional<TSuccess> x) {
-            return x.Match<AccResult<TSuccess, None>>(t0 => t0, () => None.Value);
+            return x.Match<AccResult<TSuccess, None>>(t0 => t0, () => new None());
         }
 
         /// <summary>

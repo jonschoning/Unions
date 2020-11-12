@@ -11,7 +11,7 @@ namespace Unions.Tests
             var x = default(Optional<int>);
             Assert.Equal(JsonConvert.SerializeObject(x), ("{\"v\":0,\"i\":0}"));
             Assert.Equal(JsonConvert.DeserializeObject<Optional<int>>(JsonConvert.SerializeObject(x)), (x));
-            x = None.Value;
+            x = new None();
             Assert.Equal(JsonConvert.SerializeObject(x), ("{\"v\":0,\"i\":0}"));
             Assert.Equal(JsonConvert.DeserializeObject<Optional<int>>(JsonConvert.SerializeObject(x)), (x));
             x = 0;
@@ -24,7 +24,7 @@ namespace Unions.Tests
             var y = default(Optional<string>);
             Assert.Equal(JsonConvert.SerializeObject(y), ("{\"v\":null,\"i\":0}"));
             Assert.Equal(JsonConvert.DeserializeObject<Optional<string>>(JsonConvert.SerializeObject(y)), (y));
-            y = null;
+            y = (string)null;
             Assert.Equal(JsonConvert.SerializeObject(y), ("{\"v\":null,\"i\":0}"));
             Assert.Equal(JsonConvert.DeserializeObject<Optional<string>>(JsonConvert.SerializeObject(y)), (y));
             y = new Some<string>(null); 
@@ -33,7 +33,7 @@ namespace Unions.Tests
             y = y.ToNoneIfNull();
             Assert.Equal(JsonConvert.SerializeObject(y), ("{\"v\":null,\"i\":0}"));
             Assert.Equal(JsonConvert.DeserializeObject<Optional<string>>(JsonConvert.SerializeObject(y)), (y));
-            y = None.Value;
+            y = new None();
             Assert.Equal(JsonConvert.SerializeObject(y), ("{\"v\":null,\"i\":0}"));
             Assert.Equal(JsonConvert.DeserializeObject<Optional<string>>(JsonConvert.SerializeObject(y)), (y));
             y = "seven";

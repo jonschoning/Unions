@@ -14,7 +14,7 @@ namespace Unions.Tests
             Assert.True(x.IsNone);
             Assert.False(x.IsSomeT);
             Assert.False(x.IsSomeNull);
-            x = None.Value;
+            x = new None();
             Assert.True(x.IsNone);
             Assert.False(x.IsSomeT);
             Assert.False(x.IsSomeNull);
@@ -32,7 +32,7 @@ namespace Unions.Tests
             Assert.True(y.IsNone);
             Assert.False(y.IsSomeT);
             Assert.False(y.IsSomeNull);
-            y = null;                  // implicit convertion to None
+            y = (string)null;                  // implicit convertion to None
             Assert.True(y.IsNone);
             Assert.False(y.IsSomeT);
             Assert.False(y.IsSomeNull);
@@ -52,7 +52,7 @@ namespace Unions.Tests
             Assert.True(y.IsNone);
             Assert.False(y.IsSomeT);
             Assert.False(y.IsSomeNull);
-            y = None.Value;
+            y = new None();
             Assert.True(y.IsNone);
             Assert.False(y.IsSomeT);
             Assert.False(y.IsSomeNull);
