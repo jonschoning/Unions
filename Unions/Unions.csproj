@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>True</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="newtonsoft.json" Version="12.0.1" />
+    <PackageReference Include="newtonsoft.json" Version="13.0.1" />
     <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
   </ItemGroup>
 </Project>
